@@ -7,8 +7,10 @@ The objective of the project is to:
 3. To display and analyze the Power Spectral Density (PSD) and constellation plots of the received spectrum.
 
 SOLUTION
+
 1. usrp_src.cpp
 The solution was implemented by writing C++ Wrapper files that links the USRP source code to the System Studio interface. The preliminary function of the wrapper file was to initialize the device, start the device, read the I and Q samples and to stop the device.
+
 
 PROJECT FOLLOW-UP
 Due to the extensible nature of the USRP device, there is potential for future work in this area. The wrapper files are an advantage for developers as additional coding is simplified. A prospective follow-up of this project is to develop a re-sampler block in System Studio to facilitate the processing of UMTS signals.
