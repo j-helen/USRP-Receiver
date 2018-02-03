@@ -1,0 +1,75 @@
+prim_model usrp_source
+{
+	// sampling rate
+	param read_on_reset double SAMPLE_RATE = 2e6;
+	// buffer to read in USRP data
+	param read_on_reset unsigned int BUF_LENGTH = 4096*2;
+	// gain 0 or 1
+	param read_on_reset double GAIN = 5.0;
+	// frequency
+	param read_on_reset double FREQUENCY = 105e6;
+	// Wire format
+	param read_on_reset char* WIREFMT = "sc16";
+	// Host format- 0 for fc32 and 1 for sc16
+	param read_on_reset char* HOSTFMT = "fc32";
+
+	type_param T = complex<float>;
+
+	port out T outr;
+	usrp_src u;
+
+	unsigned int i,j;
+	float b_r;
+	float b_im;
+	float read_value;
+	int do_exit=1;
+	complex<float> mybu[BUF_LENGTH];
+	complex<short> mybu_sh[BUF_LENGTH];
+
+	main_action
+	{
+		if(HOSTFMT == "fc32")
+		{
+		read_value=u.stream_fl(BUF_LENGTH, mybu);
+		for(i=0; i<read_value; i+=2)
+		{ 	//j=2*i;
+			b_r=(float)((mybu[i  ]));
+			b_im=(float)((mybu[i+1]));
+			outr = complex(b_r,b_im);
+			write(outr);
+		}
+		}
+		else
+		{
+		read_value=u.stream_sh(BUF_LENGTH, mybu_sh);
+		for(i=0; i<read_value; i+=2)
+		{
+			//j=2*i;
+			b_r=(short)((mybu_sh[i  ]));
+			b_im=(short)((mybu_sh[i+1]));
+			outr = complex(b_r,b_im);
+			write(outr);
+		}
+		}
+
+	}
+
+	reset_action
+	{
+		u.init(SAMPLE_RATE,FREQUENCY,GAIN,HOSTFMT,WIREFMT);
+		u.start();
+	}
+
+	catch_termination
+	{
+	u.stop ();
+	 printf("\n device closed \n \n");
+	}
+
+	attributes
+	{
+		// ports attributes
+		outr.rotate("false");
+	}
+
+} 
