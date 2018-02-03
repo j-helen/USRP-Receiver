@@ -7,7 +7,7 @@ The objective of the project is to:
 3. To display and analyze the Power Spectral Density (PSD) and constellation plots of the received spectrum.
 
 SOLUTION
-
+![alt text](https://github.com/j-helen/USRP-Receiver/blob/master/Images/usrp_src.png)
 1. usrp_src.cpp
 The solution was implemented by writing C++ Wrapper files that links the USRP source code to the System Studio interface. The preliminary function of the wrapper file was to initialize the device, start the device, read the I and Q samples and to stop the device.
 
