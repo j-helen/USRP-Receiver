@@ -5,6 +5,8 @@ To develop a prototyping platform with a combination of sensible hardware and so
 1. Develop a USRP receiver block in System Studio that reads samples from USRP device.
 2. Display and analyze the Power Spectral Density (PSD) and constellation plots of the received spectrum.
 
+![alt_text](https://github.com/j-helen/USRP-Receiver/blob/master/Images/SystemStudioModel.png)
+
 SOLUTION:
 The solution was implemented by writing C++ Wrapper files that links the USRP source code to the System Studio interface. 
 
@@ -14,6 +16,8 @@ The solution was implemented by writing C++ Wrapper files that links the USRP so
 The preliminary function of the wrapper file was to initialize the device, start the device, read the I and Q samples and to stop the device.
 2. usrp_src.h: This file consists of the necessary UHD header files and the required BOOST header files.
 3. prim_model: This file consists of three sections: reset_action, main_action and catch_termination. 
+
+![alt_text](https://github.com/j-helen/USRP-Receiver/blob/master/Images/prim_model.png)
 
 
 PROJECT FOLLOW-UP
