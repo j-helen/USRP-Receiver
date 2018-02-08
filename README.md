@@ -1,4 +1,4 @@
-IMPLEMENTATION OF USRP RECEIVER BLOCK IN SYSTEM STUDIO
+                 IMPLEMENTATION OF USRP RECEIVER BLOCK IN SYSTEM STUDIO
 
 OBJECTIVE:
 To develop a prototyping platform with a combination of sensible hardware and software. The Software Defined Radio (SDR) used in this project is a Universal Software Radio Peripheral (USRP) N Series and the software used is System Studio. The objective of the project is to:
