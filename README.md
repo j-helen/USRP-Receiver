@@ -1,11 +1,9 @@
 IMPLEMENTATION OF USRP RECEIVER BLOCK IN SYSTEM STUDIO
 
 OBJECTIVE:
-To develop a prototyping platform with a combination of sensible hardware and software. The Software Defined Radio (SDR) used in this project is a Universal Software Radio Peripheral (USRP) N Series and the software used is System Studio.
-The objective of the project is to:
-1. Interface the USRP device with the host system.
-2. Develop a USRP receiver block in System Studio that reads samples from USRP device.
-3. To display and analyze the Power Spectral Density (PSD) and constellation plots of the received spectrum.
+To develop a prototyping platform with a combination of sensible hardware and software. The Software Defined Radio (SDR) used in this project is a Universal Software Radio Peripheral (USRP) N Series and the software used is System Studio. The objective of the project is to:
+1. Develop a USRP receiver block in System Studio that reads samples from USRP device.
+2. Display and analyze the Power Spectral Density (PSD) and constellation plots of the received spectrum.
 
 SOLUTION:
 The solution was implemented by writing C++ Wrapper files that links the USRP source code to the System Studio interface. 
@@ -14,6 +12,8 @@ The solution was implemented by writing C++ Wrapper files that links the USRP so
 
 1. usrp_src.cpp:
 The preliminary function of the wrapper file was to initialize the device, start the device, read the I and Q samples and to stop the device.
+2. usrp_src.h: This file consists of the necessary UHD header files and the required BOOST header files.
+3. prim_model: This file consists of three sections: reset_action, main_action and catch_termination. 
 
 
 PROJECT FOLLOW-UP
